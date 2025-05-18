@@ -2,119 +2,133 @@
 <html lang="fr">
 <head>
   <meta charset="UTF-8" />
-  <title>Matchs</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Matchs & Tournois - Équipe e-sport</title>
   <style>
-    /* Fond noir et texte blanc */
+    /* Thème sombre avec néon rouge sombre */
     body {
-      background-color: #000;
-      color: #fff;
       font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-      max-width: 900px;
-      margin: 40px auto;
-      padding: 20px;
+      background-color: #0a0a0a;
+      color: #f44336; /* rouge néon */
+      margin: 20px;
+      text-shadow:
+        0 0 5px #f44336,
+        0 0 10px #f44336,
+        0 0 20px #b71c1c,
+        0 0 30px #b71c1c;
     }
 
-    h1 {
+    h1, h2 {
       text-align: center;
-      font-size: 3em;
-      color: #ff0000;
+      color: #f44336;
       text-shadow:
-        0 0 5px #ff0000,
-        0 0 10px #ff0000,
-        0 0 20px #ff0000,
-        0 0 40px #ff0000;
-      margin-bottom: 40px;
+        0 0 10px #f44336,
+        0 0 20px #b71c1c,
+        0 0 30px #b71c1c;
+      margin-bottom: 10px;
+    }
+
+    .game-section {
+      margin: 40px 0;
     }
 
     table {
-      width: 100%;
+      width: 90%;
+      margin: 0 auto 40px auto;
       border-collapse: collapse;
-      margin-bottom: 40px;
+      background: #120000;
+      box-shadow:
+        0 0 10px #f44336,
+        0 0 20px #b71c1c,
+        0 0 30px #7f0000;
+      border: 1px solid #f44336;
+      color: #f44336;
     }
 
     th, td {
-      padding: 15px;
+      padding: 12px 15px;
+      border: 1px solid #7f0000;
       text-align: center;
-      border: 2px solid #ff0000;
-      color: #ff4444;
-      text-shadow:
-        0 0 3px #ff0000;
     }
 
     th {
-      background-color: #330000;
-      font-size: 1.2em;
-      text-transform: uppercase;
-      letter-spacing: 1px;
-      box-shadow:
-        0 0 10px #ff0000 inset;
+      background-color: #3d0000;
+      color: #ff6f61;
+      text-shadow:
+        0 0 5px #ff6f61;
     }
 
     tr:nth-child(even) {
-      background-color: #110000;
+      background-color: #220000;
     }
 
-    /* Effet neon sur les liens */
-    a {
-      color: #ff2222;
-      text-decoration: none;
-      font-weight: bold;
-      text-shadow:
-        0 0 5px #ff0000,
-        0 0 10px #ff0000;
-      transition: color 0.3s ease;
-    }
-
-    a:hover {
-      color: #ff6666;
-      text-shadow:
-        0 0 15px #ff6666,
-        0 0 30px #ff6666;
+    tr:hover {
+      background-color: #440000;
+      box-shadow:
+        inset 0 0 10px #ff6f61;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
     }
   </style>
 </head>
 <body>
 
-  <h1>Calendrier des Matchs</h1>
+  <h1>Équipe e-Sport Multigaming</h1>
+  <h2>Matchs & Tournois par année et jeu</h2>
 
-  <table>
-    <thead>
-      <tr>
-        <th>Date</th>
-        <th>Notre Equipe</th>
-        <th>Autre Equiper</th>
-        <th>Heure</th>
-        <th>Lieu</th>
-        <th>Résultat</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td>25/05/2025</td>
-        <td>Elite Squad</td>
-        <td>Panthères Noires</td>
-        <td>20:00</td>
-        <td>Stade Central</td>
-        <td><a href="#">Voir détails</a></td>
-      </tr>
-      <tr>
-        <td>02/06/2025</td>
-        <td>Elite Squad</td>
-        <td>Dragons Bleus</td>
-        <td>18:30</td>
-        <td>Stade Nord</td>
-        <td><a href="#">Voir détails</a></td>
-      </tr>
-      <tr>
-        <td>10/06/2025</td>
-        <td>Elite Squad</td>
-        <td>Loups Argentés</td>
-        <td>21:00</td>
-        <td>Stade Sud</td>
-        <td><a href="#">Voir détails</a></td>
-      </tr>
-    </tbody>
-  </table>
+  <div id="matches-container"></div>
 
-</body>
-</html>
+  <script>
+    // Données des matchs (un par année et par jeu)
+    const matches = {
+      "Mario Kart": [
+        { year: 2021, event: "Tournoi Mario Kart Europe", result: "Victoire 3-2 contre Team Blue" },
+        { year: 2022, event: "Championnat National", result: "Défaite 1-3 contre Red Racers" },
+        { year: 2023, event: "Mario Kart World Cup", result: "Victoire 3-1 contre Green Shells" },
+      ],
+      "Fortnite": [
+        { year: 2021, event: "Fortnite Open", result: "Top 5" },
+        { year: 2022, event: "Fortnite Invitational", result: "Top 3" },
+        { year: 2023, event: "Fortnite Championship", result: "Victoire 2-0 en finale" },
+      ],
+      "Splatoon 2": [
+        { year: 2021, event: "Splatoon 2 Regional", result: "Défaite en demi-finale" },
+        { year: 2022, event: "Splatoon 2 Nationals", result: "Victoire 3-2" },
+      ],
+      "Splatoon 3": [
+        { year: 2023, event: "Splatoon 3 Open", result: "Participation" },
+      ],
+      "Smash Bros": [
+        { year: 2021, event: "Smash Bros Ultimate Tour", result: "Top 8" },
+        { year: 2022, event: "Smash Bros Invitational", result: "Top 4" },
+        { year: 2023, event: "Smash Bros World Championship", result: "Victoire" },
+      ],
+    };
+
+    const container = document.getElementById('matches-container');
+
+    for (const game in matches) {
+      const section = document.createElement('section');
+      section.className = "game-section";
+
+      const title = document.createElement('h2');
+      title.textContent = game;
+      section.appendChild(title);
+
+      const table = document.createElement('table');
+
+      // Entête du tableau
+      const thead = document.createElement('thead');
+      thead.innerHTML = `
+        <tr>
+          <th>Année</th>
+          <th>Événement</th>
+          <th>Résultat</th>
+        </tr>
+      `;
+      table.appendChild(thead);
+
+      const tbody = document.createElement('tbody');
+
+      matches[game].
+
