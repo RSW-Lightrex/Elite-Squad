@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <title>Clips - Meilleurs Moments</title>
+  <style>
+    body {
+      background-color: #000;
+      color: #fff;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      max-width: 1000px;
+      margin: 40px auto;
+      padding: 20px;
+    }
+
+    h1 {
+      text-align: center;
+      font-size: 3em;
+      color: #ff0000;
+      text-shadow:
+        0 0 5px #ff0000,
+        0 0 10px #ff0000,
+        0 0 20px #ff0000;
+      margin-bottom: 40px;
+    }
+
+    .clips {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+      gap: 30px;
+    }
+
+    .clip {
+      background-color: #110000;
+      border: 2px solid #ff0000;
+      border-radius: 10px;
+      padding: 15px;
+      box-shadow: 0 0 10px #ff0000;
+      transition: transform 0.3s ease;
+    }
+
+    .clip:hover {
+      transform: scale(1.03);
+      box-shadow: 0 0 20px #ff0000;
+    }
+
+    iframe, video {
+      width: 100%;
+      height: 200px;
+      border: none;
+      border-radius: 8px;
+      margin-bottom: 10px;
+    }
+
+    .titre {
+      color: #ff4444;
+      font-weight: bold;
+      text-shadow: 0 0 5px #ff0000;
+      text-align: center;
+    }
+  </style>
+</head>
+<body>
+
+  <h1>Nos Meilleurs Moments</h1>
+
+  <div class="clips">
+
+    <!-- Clip YouTube -->
+    <div class="clip">
+      <iframe src="https://www.youtube.com/embed/dQw4w9WgXcQ" allowfullscreen></iframe>
+      <div class="titre">Clip #1 - Inoubliable victoire !</div>
+    </div>
+
+    <!-- Clip local -->
+    <div class="clip">
+      <video controls>
+        <source src="video1.mp4" type="video/mp4">
+        Votre navigateur ne supporte pas la lecture de vidéo.
+      </video>
+      <div class="titre">Clip #2 - Super but d'équipe</div>
+    </div>
+
+    <!-- Clip externe ou autre -->
+    <div class="clip">
+      <iframe src="https://www.youtube.com/embed/oHg5SJYRHA0" allowfullscreen></iframe>
+      <div class="titre">Clip #3 - Action rapide</div>
+    </div>
+
+  </div>
+
+</body>
+</html>
