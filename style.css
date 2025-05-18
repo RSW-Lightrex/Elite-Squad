@@ -1,35 +1,91 @@
 
+@import url('https://fonts.googleapis.com/css2?family=Rajdhani:wght@400;700&display=swap');
+
 body {
-  font-family: Arial, sans-serif;
-  background: #0d0d0d;
-  color: #f2f2f2;
   margin: 0;
-  padding: 0;
+  font-family: 'Rajdhani', sans-serif;
+  background: linear-gradient(135deg, #0f0f0f, #1a1a1a);
+  color: #f0f0f0;
 }
 
-header {
-  background: #1a1a1a;
+header, footer {
+  background-color: #111;
   padding: 20px;
   text-align: center;
+  color: #00ffaa;
+  box-shadow: 0 4px 15px rgba(0, 255, 170, 0.2);
 }
 
 nav a {
-  margin: 0 10px;
-  color: #0ff;
+  color: #00ffaa;
+  margin: 0 15px;
   text-decoration: none;
+  font-weight: bold;
+  transition: 0.3s ease;
 }
 
-main {
+nav a:hover {
+  color: #00ccff;
+  text-shadow: 0 0 5px #00ffaa;
+}
+
+.container {
+  max-width: 1000px;
+  margin: auto;
   padding: 20px;
 }
 
-section {
-  margin-bottom: 30px;
+h1, h2, h3 {
+  color: #00ffaa;
+  text-shadow: 0 0 10px #00ffaa60;
 }
 
-footer {
-  background: #1a1a1a;
-  text-align: center;
+button, input[type="submit"] {
+  background: linear-gradient(to right, #00ffaa, #00ccff);
+  border: none;
+  color: black;
+  padding: 10px 20px;
+  margin-top: 10px;
+  font-size: 1rem;
+  border-radius: 8px;
+  font-weight: bold;
+  transition: 0.3s ease-in-out;
+}
+
+button:hover, input[type="submit"]:hover {
+  transform: scale(1.05);
+  background: linear-gradient(to right, #00ffcc, #0099ff);
+  cursor: pointer;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  background-color: #181818;
+  padding: 30px;
+  border-radius: 10px;
+  box-shadow: 0 0 20px #00ffaa30;
+}
+
+input, textarea {
   padding: 10px;
-  color: #aaa;
+  border: none;
+  border-radius: 5px;
+  font-size: 1rem;
+}
+
+footer p {
+  font-size: 0.9rem;
+  color: #888;
+}
+
+@media (max-width: 768px) {
+  nav a {
+    display: block;
+    margin: 10px 0;
+  }
+  form {
+    padding: 15px;
+  }
 }
