@@ -32,12 +32,6 @@ nav a {
   transition: 0.3s;
 }
 
-.btn:hover {
-  background-color: red;
-  color: black;
-  box-shadow: 0 0 10px red;
-}
-
 nav a:hover {
   color: #fff;
   text-shadow: 0 0 10px #ff4d4d;
