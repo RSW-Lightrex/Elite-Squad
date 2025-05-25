@@ -1,14 +1,14 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-  <meta charset="UTF-8" />
-  <title>Notre Équipe</title>
+  <meta charset="UTF-8">
+  <title>Stats de RSW-Lightrex</title>
   <style>
     body {
       background-color: #000;
       color: #fff;
       font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-      max-width: 1000px;
+      max-width: 800px;
       margin: 40px auto;
       padding: 20px;
     }
@@ -16,141 +16,97 @@
     h1 {
       text-align: center;
       color: #ff0000;
-      text-shadow:
-        0 0 5px #ff0000,
-        0 0 10px #ff0000,
-        0 0 20px #ff0000,
-        0 0 40px #ff0000;
-      margin-bottom: 40px;
-      font-size: 3em;
+      text-shadow: 0 0 10px #ff0000;
+      font-size: 2.5em;
     }
 
-    .equipe {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-      gap: 30px;
-      padding: 10px;
+    .profile {
+      text-align: center;
+      margin-top: 30px;
     }
 
-    .joueur {
+    .avatar {
+      width: 150px;
+      height: 150px;
+      border-radius: 50%;
+      border: 4px solid #ff0000;
+      object-fit: cover;
+      box-shadow: 0 0 20px #ff0000;
+    }
+
+    .info {
+      margin-top: 15px;
+    }
+
+    .info p {
+      font-size: 1.2em;
+      margin: 8px 0;
+    }
+
+    .stats {
+      margin-top: 40px;
       background-color: #110000;
       border: 2px solid #ff0000;
       border-radius: 12px;
       padding: 20px;
+      box-shadow: 0 0 15px #ff0000;
+    }
+
+    .stats h2 {
       text-align: center;
-      box-shadow: 0 0 10px #ff0000;
-      transition: transform 0.3s ease;
-    }
-
-    .joueur:hover {
-      transform: scale(1.05);
-      box-shadow: 0 0 20px #ff0000;
-    }
-
-    .avatar {
-      width: 100px;
-      height: 100px;
-      border-radius: 50%;
-      border: 3px solid #ff0000;
-      margin-bottom: 15px;
-      background-color: #220000;
-      object-fit: cover;
-    }
-
-    .nom {
-      font-size: 1.2em;
       color: #ff4444;
-      text-shadow: 0 0 5px #ff0000;
-      margin-bottom: 5px;
     }
 
-    .poste {
-      font-size: 0.9em;
-      color: #ccc;
+    .stat-item {
+      margin: 10px 0;
+      font-size: 1.1em;
     }
 
-    .btn-stats {
-      display: inline-block;
-      margin-top: 10px;
-      padding: 8px 16px;
+    .back-btn {
+      margin-top: 30px;
+      display: block;
+      width: fit-content;
+      margin-left: auto;
+      margin-right: auto;
       background-color: #ff0000;
       color: #fff;
-      border: none;
+      padding: 10px 20px;
       border-radius: 8px;
       text-decoration: none;
       font-weight: bold;
       box-shadow: 0 0 10px #ff0000;
-      transition: background-color 0.3s;
+      transition: background-color 0.3s ease;
     }
 
-    .btn-stats:hover {
+    .back-btn:hover {
       background-color: #cc0000;
     }
   </style>
 </head>
 <body>
 
-  <h1>Notre Équipe</h1>
+  <h1>Statistiques de RSW-Lightrex</h1>
 
-  <div class="equipe">
-
-    <div class="joueur">
-      <img src="Lightrex pp.webp" alt="Avatar Joueur 1" class="avatar">
-      <div class="nom">RSW-Lightrex</div>
-      <div class="poste">Chef/joueur</div>
-      <div jeu="jeu">Smash Bros</div>
-      <a href="stats-lightrex.html" class="btn-stats">Voir les stats</a>
+  <div class="profile">
+    <img src="Lightrex pp.webp" alt="Avatar de Lightrex" class="avatar">
+    <div class="info">
+      <p><strong>Poste :</strong> Chef / Joueur</p>
+      <p><strong>Jeu favori :</strong> Super Smash Bros</p>
+      <p><strong>Rôle :</strong> Leader stratégique</p>
     </div>
-
-    <div class="joueur">
-      <img src="avatar Firerex.webp" alt="Avatar Joueur 2" class="avatar">
-      <div class="nom">RSW-Firerex</div>
-      <div class="poste">admin/joueur</div>
-      <div jeu="jeu">Splatoon/Fortnite</div>
-      <a href="stats-firerex.html" class="btn-stats">Voir les stats</a>
-    </div>
-
-    <div class="joueur">
-      <img src="avatar Lespectre.webp" alt="Avatar Joueur 3" class="avatar">
-      <div class="nom">RSW-Lespectre</div>
-      <div class="poste">admin/joueur</div>
-      <div jeu="jeu">Mario Kart</div>
-      <a href="stats-lespectre.html" class="btn-stats">Voir les stats</a>
-    </div>
-
-    <div class="joueur">
-      <img src="pp doug.gif" alt="Avatar Joueur 1" class="avatar">
-      <div class="nom">RSW-Doug</div>
-      <div class="poste">joueur</div>
-      <div jeu="jeu">Mario Kart</div>
-      <a href="stats-doug.html" class="btn-stats">Voir les stats</a>
-    </div>
-
-    <div class="joueur">
-      <img src="Mew sous les étoiles digitales.png" alt="Avatar Joueur 2" class="avatar">
-      <div class="nom">~Zββ☆MeW~</div>
-      <div class="poste">ally</div>
-      <div jeu="jeu">Mario Kart</div>
-      <a href="stats-mew.html" class="btn-stats">Voir les stats</a>
-    </div>
-
-    <div class="joueur">
-      <img src="pp Gogita.gif" alt="Avatar Joueur 3" class="avatar">
-      <div class="nom">RSW-Gogita</div>
-      <div class="poste">joueur</div>
-      <div jeu="jeu">Mario Kart</div>
-      <a href="stats-gogita.html" class="btn-stats">Voir les stats</a>
-    </div>
-
-    <div class="joueur">
-      <img src="ppLinoMk126.png" alt="Avatar Joueur 4" class="avatar">
-      <div class="nom">RSW-Lino.Mk126</div>
-      <div class="poste">joueur</div>
-      <div jeu="jeu">Mario Kart</div>
-      <a href="stats-lino.html" class="btn-stats">Voir les stats</a>
-    </div>
-
   </div>
+
+  <div class="stats">
+    <h2>Performances</h2>
+    <div class="stat-item">🏆 Tournois gagnés : <strong>5</strong></div>
+    <div class="stat-item">💥 KOs moyens par match : <strong>8.4</strong></div>
+    <div class="stat-item">🎯 Précision des coups : <strong>87%</strong></div>
+    <div class="stat-item">🔥 Matchs joués : <strong>142</strong></div>
+    <div class="stat-item">👑 Winrate : <strong>76%</strong></div>
+  </div>
+
+  <a href="index.html" class="back-btn">⬅ Retour à l’équipe</a>
 
 </body>
 </html>
+
