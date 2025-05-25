@@ -221,10 +221,11 @@
         document.getElementById('modalPoste').textContent = poste;
         document.getElementById('modalJeu').textContent = "Jeu préféré : " + jeu;
 
-        // Ajoute une fonction personnalisée ici si tu veux faire quelque chose avec le nom
         document.getElementById('statsBtn').onclick = () => {
-          alert("Statistiques de " + nom + " bientôt disponibles !");
-          // ou redirige vers une autre page : window.location.href = 'stats/' + nom + '.html';
+          const nomFormatte = nom.toLowerCase()
+            .replace(/[^a-z0-9]+/g, '-')  // remplace tout ce qui n’est pas lettre/chiffre par un tiret
+            .replace(/^-+|-+$/g, '');     // supprime les tirets au début et à la fin
+          window.location.href = `stats-${nomFormatte}.html`;
         };
 
         document.getElementById('modal').style.display = 'flex';
@@ -244,5 +245,6 @@
 
 </body>
 </html>
+
 
 
