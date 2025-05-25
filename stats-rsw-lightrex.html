@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-  <meta charset="UTF-8" />
+  <meta charset="UTF-8">
   <title>Stats de RSW-Lightrex</title>
   <style>
     body {
@@ -11,72 +11,104 @@
       max-width: 800px;
       margin: 40px auto;
       padding: 20px;
-      text-align: center;
     }
+
     h1 {
+      text-align: center;
       color: #ff0000;
-      text-shadow:
-        0 0 5px #ff0000,
-        0 0 10px #ff0000,
-        0 0 20px #ff0000;
-      margin-bottom: 30px;
+      text-shadow: 0 0 10px #ff0000;
+      font-size: 2.5em;
     }
+
+    .profile {
+      text-align: center;
+      margin-top: 30px;
+    }
+
     .avatar {
       width: 150px;
       height: 150px;
       border-radius: 50%;
-      border: 3px solid #ff0000;
+      border: 4px solid #ff0000;
       object-fit: cover;
-      margin-bottom: 20px;
+      box-shadow: 0 0 20px #ff0000;
     }
+
+    .info {
+      margin-top: 15px;
+    }
+
+    .info p {
+      font-size: 1.2em;
+      margin: 8px 0;
+    }
+
     .stats {
+      margin-top: 40px;
       background-color: #110000;
       border: 2px solid #ff0000;
       border-radius: 12px;
       padding: 20px;
-      box-shadow: 0 0 10px #ff0000;
-      text-align: left;
-      max-width: 500px;
-      margin: 0 auto;
+      box-shadow: 0 0 15px #ff0000;
     }
+
     .stats h2 {
+      text-align: center;
       color: #ff4444;
-      text-shadow: 0 0 5px #ff0000;
-      margin-bottom: 15px;
     }
-    .stats p {
-      margin: 8px 0;
+
+    .stat-item {
+      margin: 10px 0;
       font-size: 1.1em;
     }
-    a.back-btn {
-      display: inline-block;
+
+    .back-btn {
       margin-top: 30px;
-      padding: 10px 25px;
+      display: block;
+      width: fit-content;
+      margin-left: auto;
+      margin-right: auto;
       background-color: #ff0000;
       color: #fff;
+      padding: 10px 20px;
       border-radius: 8px;
       text-decoration: none;
+      font-weight: bold;
       box-shadow: 0 0 10px #ff0000;
       transition: background-color 0.3s ease;
     }
-    a.back-btn:hover {
+
+    .back-btn:hover {
       background-color: #cc0000;
     }
   </style>
 </head>
 <body>
-  <h1>Statistiques de RSW-Lightrex</h1>
-  <img src="Lightrex pp.webp" alt="Avatar RSW-Lightrex" class="avatar" />
-  
-  <div class="stats">
-    <h2>Informations générales</h2>
-    <p><strong>Nom :</strong> RSW-Lightrex</p>
-    <p><strong>Poste :</strong> Chef/joueur</p>
-    <p><strong>Jeu préféré :</strong> Smash Bros</p>
 
-    <h2>Performances</h2>
-    <p>Stats détaillées à venir...</p>
+  <h1>Statistiques de RSW-Lightrex</h1>
+
+  <div class="profile">
+    <img src="Lightrex pp.webp" alt="Avatar de Lightrex" class="avatar">
+    <div class="info">
+      <p><strong>Poste :</strong> Chef / Joueur</p>
+      <p><strong>Jeu favori :</strong> Super Smash Bros</p>
+      <p><strong>Rôle :</strong> Leader stratégique</p>
+    </div>
   </div>
+
+  <div class="stats">
+    <h2>Performances</h2>
+    <div class="stat-item">🏆 Tournois gagnés : <strong>5</strong></div>
+    <div class="stat-item">💥 KOs moyens par match : <strong>8.4</strong></div>
+    <div class="stat-item">🎯 Précision des coups : <strong>87%</strong></div>
+    <div class="stat-item">🔥 Matchs joués : <strong>142</strong></div>
+    <div class="stat-item">👑 Winrate : <strong>76%</strong></div>
+  </div>
+
+  <a href="index.html" class="back-btn">⬅ Retour à l’équipe</a>
+
+</body>
+</html>
 
   <a href="index.html" class="back-btn">Retour à l'équipe</a>
 </body>
