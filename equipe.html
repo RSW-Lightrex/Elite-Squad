@@ -40,6 +40,7 @@
       text-align: center;
       box-shadow: 0 0 10px #ff0000;
       transition: transform 0.3s ease;
+      cursor: pointer;
     }
 
     .joueur:hover {
@@ -68,6 +69,74 @@
       font-size: 0.9em;
       color: #ccc;
     }
+
+    /* MODALE */
+    #modal {
+      display: none;
+      position: fixed;
+      top: 0; left: 0;
+      width: 100%; height: 100%;
+      background-color: rgba(0,0,0,0.85);
+      z-index: 1000;
+      justify-content: center;
+      align-items: center;
+      animation: fadeIn 0.5s ease;
+    }
+
+    #modalContent {
+      background: #110000;
+      padding: 30px;
+      border: 2px solid #ff0000;
+      border-radius: 15px;
+      max-width: 400px;
+      width: 90%;
+      text-align: center;
+      position: relative;
+      box-shadow: 0 0 20px #ff0000;
+      animation: zoomIn 0.4s ease;
+    }
+
+    #modalAvatar {
+      width: 100px;
+      height: 100px;
+      border-radius: 50%;
+      border: 3px solid #ff0000;
+      margin-bottom: 15px;
+      object-fit: cover;
+    }
+
+    #modalNom {
+      color: #ff4444;
+      text-shadow: 0 0 5px #ff0000;
+    }
+
+    .modal-btn {
+      background-color: #ff0000;
+      border: none;
+      padding: 10px 20px;
+      margin-top: 15px;
+      margin-inline: 10px;
+      color: #fff;
+      border-radius: 8px;
+      cursor: pointer;
+      font-size: 1em;
+      box-shadow: 0 0 10px #ff0000;
+      transition: background-color 0.3s ease;
+    }
+
+    .modal-btn:hover {
+      background-color: #cc0000;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0 }
+      to { opacity: 1 }
+    }
+
+    @keyframes zoomIn {
+      from { transform: scale(0.7); opacity: 0 }
+      to { transform: scale(1); opacity: 1 }
+    }
   </style>
 </head>
 <body>
@@ -75,8 +144,6 @@
   <h1>Notre Équipe</h1>
 
   <div class="equipe">
-
-    <!-- Chef -->
     <div class="joueur">
       <img src="Lightrex pp.webp" alt="Avatar Joueur 1" class="avatar">
       <div class="nom">RSW-Lightrex</div>
@@ -84,7 +151,6 @@
       <div jeu="jeu">Smash Bros</div>
     </div>
 
-    <!-- Admin -->
     <div class="joueur">
       <img src="avatar Firerex.webp" alt="Avatar Joueur 2" class="avatar">
       <div class="nom">RSW-Firerex</div>
@@ -92,7 +158,6 @@
       <div jeu="jeu">Splatoon/Fortnite</div>
     </div>
 
-    <!-- admin -->
     <div class="joueur">
       <img src="avatar Lespectre.webp" alt="Avatar Joueur 3" class="avatar">
       <div class="nom">RSW-Lespectre</div>
@@ -100,39 +165,82 @@
       <div jeu="jeu">Mario Kart</div>
     </div>
 
-    <!-- Joueur 1 -->
     <div class="joueur">
-      <img src="pp doug.gif" alt="Avatar Joueur 1" class="avatar">
+      <img src="pp doug.gif" alt="Avatar Joueur 4" class="avatar">
       <div class="nom">RSW-Doug</div>
       <div class="poste">joueur</div>
       <div jeu="jeu">Mario Kart</div>
     </div>
 
-    <!-- Joueur 2 -->
     <div class="joueur">
-      <img src="Mew sous les étoiles digitales.png" alt="Avatar Joueur 2" class="avatar">
+      <img src="Mew sous les étoiles digitales.png" alt="Avatar Joueur 5" class="avatar">
       <div class="nom">~Zββ☆MeW~</div>
       <div class="poste">ally</div>
       <div jeu="jeu">Mario Kart</div>
-</div>
+    </div>
 
-    <!-- Joueur 3 -->
     <div class="joueur">
-      <img src="pp Gogita.gif" alt="Avatar Joueur 3" class="avatar">
+      <img src="pp Gogita.gif" alt="Avatar Joueur 6" class="avatar">
       <div class="nom">RSW-Gogita</div>
       <div class="poste">joueur</div>
       <div jeu="jeu">Mario Kart</div>
-</div>
+    </div>
 
-    <!-- Joueur 4 -->
     <div class="joueur">
-      <img src="ppLinoMk126.png" alt="Avatar Joueur 4" class="avatar">
+      <img src="ppLinoMk126.png" alt="Avatar Joueur 7" class="avatar">
       <div class="nom">RSW-Lino.Mk126</div>
       <div class="poste">joueur</div>
       <div jeu="jeu">Mario Kart</div>
-    
-    <!-- Ajoute d'autres joueurs ici -->
+    </div>
   </div>
+
+  <!-- MODALE -->
+  <div id="modal">
+    <div id="modalContent">
+      <img id="modalAvatar" src="" alt="Avatar" />
+      <h2 id="modalNom"></h2>
+      <p id="modalPoste"></p>
+      <p id="modalJeu"></p>
+      <div>
+        <button class="modal-btn" id="statsBtn">Voir les stats</button>
+        <button class="modal-btn" id="closeModal">Fermer</button>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    document.querySelectorAll('.joueur').forEach(function(card) {
+      card.addEventListener('click', function() {
+        const avatarSrc = this.querySelector('img').getAttribute('src');
+        const nom = this.querySelector('.nom').textContent;
+        const poste = this.querySelector('.poste').textContent;
+        const jeu = this.querySelector('[jeu]').textContent;
+
+        document.getElementById('modalAvatar').src = avatarSrc;
+        document.getElementById('modalNom').textContent = nom;
+        document.getElementById('modalPoste').textContent = poste;
+        document.getElementById('modalJeu').textContent = "Jeu préféré : " + jeu;
+
+        // Ajoute une fonction personnalisée ici si tu veux faire quelque chose avec le nom
+        document.getElementById('statsBtn').onclick = () => {
+          alert("Statistiques de " + nom + " bientôt disponibles !");
+          // ou redirige vers une autre page : window.location.href = 'stats/' + nom + '.html';
+        };
+
+        document.getElementById('modal').style.display = 'flex';
+      });
+    });
+
+    document.getElementById('closeModal').addEventListener('click', function() {
+      document.getElementById('modal').style.display = 'none';
+    });
+
+    document.getElementById('modal').addEventListener('click', function(e) {
+      if (e.target === this) {
+        this.style.display = 'none';
+      }
+    });
+  </script>
 
 </body>
 </html>
