@@ -209,6 +209,13 @@
   </div>
 
   <script>
+    // Fonction pour créer un slug à partir du nom du joueur
+    function createSlug(nom) {
+      return nom.toLowerCase()
+        .replace(/[^a-z0-9]+/g, '-') // remplace tout ce qui n’est pas lettre/chiffre par un tiret
+        .replace(/^-+|-+$/g, '');    // supprime les tirets au début et à la fin
+    }
+
     document.querySelectorAll('.joueur').forEach(function(card) {
       card.addEventListener('click', function() {
         const avatarSrc = this.querySelector('img').getAttribute('src');
@@ -221,21 +228,22 @@
         document.getElementById('modalPoste').textContent = poste;
         document.getElementById('modalJeu').textContent = "Jeu préféré : " + jeu;
 
+        // Génère le lien vers la page stats spécifique pour le joueur cliqué
         document.getElementById('statsBtn').onclick = () => {
-          const nomFormatte = nom.toLowerCase()
-            .replace(/[^a-z0-9]+/g, '-')  // remplace tout ce qui n’est pas lettre/chiffre par un tiret
-            .replace(/^-+|-+$/g, '');     // supprime les tirets au début et à la fin
-          window.location.href = `stats-${nomFormatte}.html`;
+          const slug = createSlug(nom);
+          window.location.href = `stats-${slug}.html`;
         };
 
         document.getElementById('modal').style.display = 'flex';
       });
     });
 
+    // Fermer la modale
     document.getElementById('closeModal').addEventListener('click', function() {
       document.getElementById('modal').style.display = 'none';
     });
 
+    // Fermer la modale en cliquant en dehors du contenu
     document.getElementById('modal').addEventListener('click', function(e) {
       if (e.target === this) {
         this.style.display = 'none';
@@ -245,6 +253,7 @@
 
 </body>
 </html>
+
 
 
 
