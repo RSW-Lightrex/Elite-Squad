@@ -16,10 +16,7 @@
         }
         h1 {
             color: #ff0000;
-            text-shadow:
-                0 0 5px #ff0000,
-                0 0 10px #ff0000,
-                0 0 20px #ff0000;
+            text-shadow: 0 0 5px #ff0000, 0 0 10px #ff0000, 0 0 20px #ff0000;
             margin-bottom: 40px;
         }
         .game-columns-container {
@@ -68,6 +65,7 @@
             margin-bottom: 10px;
         }
         .player-info {
+            flex-grow: 1;
             text-align: center;
             width: 100%;
         }
@@ -99,7 +97,7 @@
             background-color: #cc0000;
         }
         .hidden {
-            display: none;
+            display: none !important;
         }
         .more-players-container {
             width: 100%;
@@ -122,117 +120,56 @@
 
     <script>
         const playersData = [
-            {
-                name: "RSW-Lightrex",
-                position: "Chef/joueur",
-                games: ["Smash Bros"],
-                image: "Lightrex pp.webp",
-                statsLink: "stats-rsw-lightrex.html"
-            },
-            {
-                name: "RSW-Firerex",
-                position: "admin/joueur",
-                games: ["Splatoon", "Fortnite"],
-                image: "avatar Firerex.webp",
-                statsLink: "stats-rsw-firerex.html"
-            },
-            {
-                name: "RSW-Lespectre",
-                position: "admin/joueur",
-                games: ["Mario Kart"],
-                image: "avatar Lespectre.webp",
-                statsLink: "stats-rsw-lespectre.html"
-            },
-            {
-                name: "RSW-Doug",
-                position: "joueur",
-                games: ["Mario Kart"],
-                image: "pp doug.gif",
-                statsLink: "RSW-Doug.html"
-            },
-            {
-                name: "~Zββ☆MeW~",
-                position: "ally",
-                games: ["Mario Kart"],
-                image: "Mew sous les étoiles digitales.png",
-                statsLink: "ZbbMeW.html"
-            },
-            {
-                name: "RSW-Gogita",
-                position: "joueur",
-                games: ["Mario Kart", "Smash Bros"],
-                image: "pp Gogita.gif",
-                statsLink: "RSW-Gogita.html"
-            },
-            {
-                name: "RSW-Lino.Mk126",
-                position: "joueur",
-                games: ["Mario Kart"],
-                image: "ppLinoMk126.png",
-                statsLink: "Lino._Mk126.html"
-            },
-            {
-                name: "RSW-Ino21",
-                position: "joueur",
-                games: ["Mario Kart"],
-                image: "ppLinoMk1126.png",
-                statsLink: "Ino.html"
-            },
-            {
-                name: "RSW-Kach",
-                position: "joueur",
-                games: ["Mario Kart"],
-                image: "ppKach.png",
-                statsLink: "Kach.html"
-            },
-            {
-                name: "RSW-Zambo",
-                position: "joueur",
-                games: ["Mario Kart"],
-                image: "ppZambo.png",
-                statsLink: "Zambo.html"
-            }
+            { name: "RSW-Lightrex", position: "Chef/joueur", games: ["Smash Bros"], image: "Lightrex pp.webp", statsLink: "stats-rsw-lightrex.html" },
+            { name: "RSW-Firerex", position: "admin/joueur", games: ["Splatoon", "Fortnite"], image: "avatar Firerex.webp", statsLink: "stats-rsw-firerex.html" },
+            { name: "RSW-Lespectre", position: "admin/joueur", games: ["Mario Kart"], image: "avatar Lespectre.webp", statsLink: "stats-rsw-lespectre.html" },
+            { name: "RSW-Doug", position: "joueur", games: ["Mario Kart"], image: "pp doug.gif", statsLink: "RSW-Doug.html" },
+            { name: "~Zββ☆MeW~", position: "ally", games: ["Mario Kart"], image: "Mew sous les étoiles digitales.png", statsLink: "ZbbMeW.html" },
+            { name: "RSW-Gogita", position: "joueur", games: ["Mario Kart", "Smash Bros"], image: "pp Gogita.gif", statsLink: "RSW-Gogita.html" },
+            { name: "RSW-Lino.Mk126", position: "joueur", games: ["Mario Kart"], image: "ppLinoMk126.png", statsLink: "Lino._Mk126.html" },
+            { name: "RSW-Ino21", position: "joueur", games: ["Mario Kart"], image: "ppLinoMk1126.png", statsLink: "Ino.html" },
+            { name: "RSW-Kach", position: "joueur", games: ["Mario Kart"], image: "ppKach.png", statsLink: "Kach.html" },
+            { name: "RSW-Zambo", position: "joueur", games: ["Mario Kart"], image: "ppZambo.png", statsLink: "Zambo.html" }
         ];
 
         function createPlayerCard(player) {
-            const playerCard = document.createElement('div');
-            playerCard.className = 'player-card';
+            const card = document.createElement('div');
+            card.className = 'player-card';
 
             const img = document.createElement('img');
             img.src = player.image;
             img.alt = player.name;
-            playerCard.appendChild(img);
+            card.appendChild(img);
 
-            const playerInfo = document.createElement('div');
-            playerInfo.className = 'player-info';
+            const info = document.createElement('div');
+            info.className = 'player-info';
 
-            const playerName = document.createElement('h3');
-            playerName.textContent = player.name;
-            playerInfo.appendChild(playerName);
+            const name = document.createElement('h3');
+            name.textContent = player.name;
+            info.appendChild(name);
 
-            const playerPosition = document.createElement('p');
-            playerPosition.innerHTML = `<strong>Poste :</strong> ${player.position}`;
-            playerInfo.appendChild(playerPosition);
+            const position = document.createElement('p');
+            position.innerHTML = `<strong>Poste :</strong> ${player.position}`;
+            info.appendChild(position);
 
-            const playerGames = document.createElement('p');
-            playerGames.innerHTML = `<strong>Jeu(x) préféré(s) :</strong> ${player.games.join(', ')}`;
-            playerInfo.appendChild(playerGames);
+            const games = document.createElement('p');
+            games.innerHTML = `<strong>Jeu(x) préféré(s) :</strong> ${player.games.join(', ')}`;
+            info.appendChild(games);
 
-            playerCard.appendChild(playerInfo);
+            card.appendChild(info);
 
-            const statsLink = document.createElement('a');
-            statsLink.href = player.statsLink;
-            statsLink.className = 'stats-link';
-            statsLink.textContent = 'Voir stats';
-            playerCard.appendChild(statsLink);
+            const link = document.createElement('a');
+            link.href = player.statsLink;
+            link.className = 'stats-link';
+            link.textContent = 'Voir stats';
+            card.appendChild(link);
 
-            return playerCard;
+            return card;
         }
 
         function renderPlayersByGame() {
             const container = document.getElementById('game-columns-container');
             container.innerHTML = '';
-            console.log('Rendering players by game...');
 
             const uniqueGames = new Set();
             playersData.forEach(player => {
@@ -240,68 +177,52 @@
             });
 
             const sortedGames = Array.from(uniqueGames).sort();
-            console.log('Jeux trouvés :', sortedGames);
 
             sortedGames.forEach(game => {
-                console.log(`\n---\nCréation de la colonne pour le jeu : ${game}`);
-                const gameColumn = document.createElement('div');
-                gameColumn.className = 'game-column';
+                const column = document.createElement('div');
+                column.className = 'game-column';
 
-                const columnTitle = document.createElement('h2');
-                columnTitle.textContent = game;
-                gameColumn.appendChild(columnTitle);
+                const title = document.createElement('h2');
+                title.textContent = game;
+                column.appendChild(title);
 
-                const playersInThisGame = playersData.filter(player =>
-                    player.games.includes(game)
-                );
+                const playersInGame = playersData.filter(p => p.games.includes(game));
+                if (playersInGame.length > 0) {
+                    column.appendChild(createPlayerCard(playersInGame[0]));
 
-                console.log(`Nombre de joueurs pour ${game} : ${playersInThisGame.length}`);
+                    if (playersInGame.length > 1) {
+                        const morePlayers = document.createElement('div');
+                        const gameId = game.toLowerCase().replace(/[^a-z0-9]/g, '-');
+                        morePlayers.className = 'more-players-container hidden';
+                        morePlayers.id = `more-players-${gameId}`;
 
-                if (playersInThisGame.length > 0) {
-                    console.log(`Ajout du premier joueur : ${playersInThisGame[0].name}`);
-                    gameColumn.appendChild(createPlayerCard(playersInThisGame[0]));
-
-                    if (playersInThisGame.length > 1) {
-                        const morePlayersContainer = document.createElement('div');
-                        morePlayersContainer.classList.add('more-players-container', 'hidden');
-                        morePlayersContainer.id = `more-players-${game.replace(/\s/g, '-')}`;
-
-                        for (let i = 1; i < playersInThisGame.length; i++) {
-                            console.log(`Ajout d'un joueur masqué : ${playersInThisGame[i].name}`);
-                            morePlayersContainer.appendChild(createPlayerCard(playersInThisGame[i]));
+                        for (let i = 1; i < playersInGame.length; i++) {
+                            morePlayers.appendChild(createPlayerCard(playersInGame[i]));
                         }
-                        gameColumn.appendChild(morePlayersContainer);
 
-                        const toggleButton = document.createElement('button');
-                        toggleButton.className = 'toggle-players-button';
-                        toggleButton.textContent = 'Voir plus';
+                        const toggleBtn = document.createElement('button');
+                        toggleBtn.className = 'toggle-players-button';
+                        toggleBtn.textContent = 'Voir plus';
 
-                        toggleButton.addEventListener('click', () => {
-                            console.log(`Bouton cliqué pour ${game}`);
-                            morePlayersContainer.classList.toggle('hidden');
-                            toggleButton.textContent = morePlayersContainer.classList.contains('hidden')
-                                ? 'Voir plus'
-                                : 'Voir moins';
+                        toggleBtn.addEventListener('click', () => {
+                            morePlayers.classList.toggle('hidden');
+                            toggleBtn.textContent = morePlayers.classList.contains('hidden') ? 'Voir plus' : 'Voir moins';
                         });
 
-                        gameColumn.appendChild(toggleButton);
+                        column.appendChild(morePlayers);
+                        column.appendChild(toggleBtn);
                     }
-                } else {
-                    const noPlayersText = document.createElement('p');
-                    noPlayersText.textContent = 'Aucun joueur pour ce jeu.';
-                    gameColumn.appendChild(noPlayersText);
                 }
 
-                container.appendChild(gameColumn);
+                container.appendChild(column);
             });
-
-            console.log('\n✅ Rendu terminé.\n');
         }
 
         document.addEventListener('DOMContentLoaded', renderPlayersByGame);
     </script>
 </body>
 </html>
+
 
 
 
