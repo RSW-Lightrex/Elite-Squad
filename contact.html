@@ -1,108 +1,252 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Contact – Elite Squad</title>
-  <script src="https://cdn.tailwindcss.com"></script>
-  <style>
-    /* Configuration personnalisée pour le thème Tailwind */
-    @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap');
-    body {
-      font-family: 'Inter', sans-serif;
-    }
-  </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact – Elite Squad</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        /* Configuration personnalisée pour le thème Tailwind */
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap');
+        body {
+            font-family: 'Inter', sans-serif;
+        }
+        /* Styles pour les champs de formulaire personnalisés */
+        .form-input-field {
+            width: 100%;
+            padding: 12px; /* Slightly more padding for better touch targets */
+            border-radius: 8px; /* Slightly more rounded corners */
+            background-color: #1f2937; /* Darker gray for input background (gray-800) */
+            color: #f3f4f6; /* Light gray text (gray-100) */
+            border: 1px solid #374151; /* Dark gray border (gray-700) */
+            transition: all 0.2s ease-in-out;
+        }
+        .form-input-field:focus {
+            outline: none;
+            border-color: #dc2626; /* Red 700 for focus border */
+            box-shadow: 0 0 0 3px rgba(220, 38, 38, 0.5); /* Red 700 with transparency for focus ring */
+        }
+        .form-label {
+            display: block;
+            font-size: 1.125rem; /* text-lg */
+            font-weight: 600; /* font-semibold */
+            margin-bottom: 8px; /* mb-2 */
+            color: #ef4444; /* Red 600 */
+        }
+        .checkbox-label {
+            display: flex;
+            align-items: center;
+            font-weight: 500; /* Medium font weight */
+            color: #d1d5db; /* Gray 300 for checkbox text */
+            cursor: pointer;
+        }
+        .checkbox-input {
+            margin-right: 10px;
+            width: 20px;
+            height: 20px;
+            accent-color: #ef4444; /* Red 600 for checkbox color */
+            border-radius: 4px; /* Slightly rounded checkbox */
+        }
+        .hidden {
+            display: none;
+        }
+        .home-link {
+            display: block;
+            margin-top: 24px;
+            text-align: center;
+            color: #ef4444; /* Red 600 */
+            font-weight: 600;
+            text-decoration: none;
+            transition: color 0.2s ease-in-out;
+        }
+        .home-link:hover {
+            color: #dc2626; /* Red 700 */
+        }
+    </style>
 </head>
 <body class="min-h-screen bg-black text-gray-200 flex flex-col items-center justify-center p-4">
 
-  <header class="w-full max-w-2xl text-center mb-10 p-6 bg-gray-900 rounded-xl shadow-lg border border-red-900">
-    <h1 class="text-4xl md:text-5xl font-bold text-red-700 drop-shadow-[0_0_10px_rgba(220,38,38,0.7)]">
-      Contacte l'équipe Elite Squad
-    </h1>
-  </header>
+    <header class="w-full max-w-2xl text-center mb-10 p-6 bg-gray-900 rounded-xl shadow-lg border border-red-900">
+        <h1 class="text-4xl md:text-5xl font-bold text-red-700 drop-shadow-[0_0_10px_rgba(220,38,38,0.7)]">
+            Contacte l'équipe Elite Squad
+        </h1>
+    </header>
 
-  <div class="container w-full max-w-xl mx-auto p-8 bg-gray-900 rounded-xl shadow-lg border border-red-900">
-    <form id="contact-form" action="https://formspree.io/f/xgvkdbep" method="POST" class="space-y-6">
-      <div>
-        <label for="name" class="block text-lg font-semibold mb-2 text-red-600">Nom</label>
-        <input
-          type="text"
-          name="name"
-          required
-          class="w-full p-3 rounded-lg bg-gray-800 text-white border border-gray-700 focus:outline-none focus:ring-2 focus:ring-red-700 transition-all duration-200"
-        >
-      </div>
+    <div class="container w-full max-w-xl mx-auto p-8 bg-gray-900 rounded-xl shadow-lg border border-red-900">
+        <form id="contact-form" action="https://formspree.io/f/xgvkdbep" method="POST" class="space-y-6">
+            <div>
+                <label for="name" class="form-label">Nom Complet</label>
+                <input
+                    type="text"
+                    id="name"
+                    name="name"
+                    placeholder="Votre nom"
+                    required
+                    class="form-input-field"
+                >
+            </div>
 
-      <div>
-        <label for="email" class="block text-lg font-semibold mb-2 text-red-600">Adresse Email</label>
-        <input
-          type="email"
-          name="_replyto"
-          required
-          class="w-full p-3 rounded-lg bg-gray-800 text-white border border-gray-700 focus:outline-none focus:ring-2 focus:ring-red-700 transition-all duration-200"
-        >
-      </div>
+            <div>
+                <label for="email" class="form-label">Adresse Email</label>
+                <input
+                    type="email"
+                    id="email"
+                    name="_replyto"
+                    placeholder="votre.email@example.com"
+                    required
+                    class="form-input-field"
+                >
+            </div>
 
-      <div>
-        <label for="message" class="block text-lg font-semibold mb-2 text-red-600">Message</label>
-        <textarea
-          name="message"
-          rows="5"
-          required
-          class="w-full p-3 rounded-lg bg-gray-800 text-white border border-gray-700 focus:outline-none focus:ring-2 focus:ring-red-700 transition-all duration-200 resize-y"
-        ></textarea>
-      </div>
+            <div>
+                <label for="motivation" class="form-label">Vos motivations pour rejoindre notre équipe</label>
+                <textarea
+                    id="motivation"
+                    name="motivation"
+                    rows="5"
+                    placeholder="Expliquez pourquoi vous souhaitez nous contacter et ce qui vous motive..."
+                    required
+                    class="form-input-field resize-y"
+                ></textarea>
+            </div>
 
-      <button
-        type="submit"
-        class="w-full px-8 py-4 bg-red-800 text-white font-semibold text-xl rounded-xl shadow-lg hover:bg-red-700 transition-all duration-300 drop-shadow-[0_0_8px_rgba(220,38,38,0.5)] active:scale-95 focus:outline-none focus:ring-2 focus:ring-red-700"
-      >
-        Envoyer
-      </button>
+            <div class="form-group">
+                <label class="form-label mb-4">Dans quels jeux es-tu fort ?</label>
+                <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 mt-2">
+                    <div class="checkbox-group">
+                        <label for="mario-kart" class="checkbox-label">
+                            <input type="checkbox" id="mario-kart" name="games" value="Mario Kart" class="checkbox-input">
+                            Mario Kart
+                        </label>
+                    </div>
+                    <div class="checkbox-group">
+                        <label for="splatoon" class="checkbox-label">
+                            <input type="checkbox" id="splatoon" name="games" value="Splatoon" class="checkbox-input">
+                            Splatoon
+                        </label>
+                    </div>
+                    <div class="checkbox-group">
+                        <label for="smash-bros" class="checkbox-label">
+                            <input type="checkbox" id="smash-bros" name="games" value="Smash Bros" class="checkbox-input">
+                            Smash Bros
+                        </label>
+                    </div>
+                    <div class="checkbox-group">
+                        <label for="fortnite" class="checkbox-label">
+                            <input type="checkbox" id="fortnite" name="games" value="Fortnite" class="checkbox-input">
+                            Fortnite
+                        </label>
+                    </div>
+                    <div class="checkbox-group">
+                        <label for="other-game-checkbox" class="checkbox-label">
+                            <input type="checkbox" id="other-game-checkbox" name="games" value="Autre" onchange="toggleOtherGameInput()" class="checkbox-input">
+                            Autre (précise)
+                        </label>
+                    </div>
+                </div>
+                <div id="other-game-input-container" class="mt-4 hidden">
+                    <label for="other-game-text" class="sr-only">Autre jeu</label>
+                    <input type="text" id="other-game-text" name="other_game" placeholder="Nom de l'autre jeu" class="form-input-field">
+                </div>
+            </div>
 
-      <p class="success mt-4 text-center text-red-600 font-bold text-lg hidden" id="success-msg">
-        ✅ Message envoyé avec succès !
-      </p>
-    </form>
-  </div>
+            <div>
+                <label for="message_supplementaire" class="form-label">Message supplémentaire (optionnel)</label>
+                <textarea
+                    id="message_supplementaire"
+                    name="message_supplementaire"
+                    rows="3"
+                    placeholder="Un message additionnel si tu en as un..."
+                    class="form-input-field resize-y"
+                ></textarea>
+            </div>
 
-  <script>
-    // Récupération des éléments du DOM
-    const form = document.getElementById('contact-form');
-    const success = document.getElementById('success-msg');
+            <button
+                type="submit"
+                class="w-full px-8 py-4 bg-red-800 text-white font-semibold text-xl rounded-xl shadow-lg hover:bg-red-700 transition-all duration-300 drop-shadow-[0_0_8px_rgba(220,38,38,0.5)] active:scale-95 focus:outline-none focus:ring-2 focus:ring-red-700"
+            >
+                Envoyer
+            </button>
 
-    // Ajout d'un écouteur d'événement pour la soumission du formulaire
-    form.addEventListener('submit', function (e) {
-      e.preventDefault(); // Empêche le comportement par défaut du formulaire (rechargement de la page)
+            <p class="success mt-4 text-center text-red-600 font-bold text-lg hidden" id="success-msg">
+                ✅ Message envoyé avec succès !
+            </p>
+        </form>
+        <a href="/" class="home-link">Retour à l'accueil</a>
+    </div>
 
-      const formData = new FormData(form); // Crée un objet FormData à partir du formulaire
-
-      // Envoi des données du formulaire à l'URL spécifiée (Formspree)
-      fetch(form.action, {
-        method: 'POST', // Méthode HTTP POST
-        body: formData, // Corps de la requête (données du formulaire)
-        headers: {
-          'Accept': 'application/json' // Accepte une réponse JSON
+    <script>
+        /**
+         * Toggles the visibility of the "Other game" text input based on the checkbox state.
+         */
+        function toggleOtherGameInput() {
+            const otherGameCheckbox = document.getElementById('other-game-checkbox');
+            const otherGameInputContainer = document.getElementById('other-game-input-container');
+            if (otherGameCheckbox.checked) {
+                otherGameInputContainer.classList.remove('hidden');
+                document.getElementById('other-game-text').setAttribute('required', 'true');
+            } else {
+                otherGameInputContainer.classList.add('hidden');
+                document.getElementById('other-game-text').removeAttribute('required');
+                document.getElementById('other-game-text').value = ''; // Clear input when hidden
+            }
         }
-      })
-      .then(response => {
-        // Vérifie si la réponse de la requête est OK (statut 2xx)
-        if (response.ok) {
-          success.style.display = 'block'; // Affiche le message de succès
-          form.reset(); // Réinitialise le formulaire
-        } else {
-          // Gère les erreurs de soumission du formulaire
-          console.error('Erreur lors de l\'envoi du message.');
-          // Vous pourriez ajouter un message d'erreur à l'utilisateur ici
-        }
-      })
-      .catch(error => {
-        // Gère les erreurs réseau ou autres problèmes
-        console.error('Erreur réseau ou autre:', error);
-        // Vous pourriez ajouter un message d'erreur à l'utilisateur ici
-      });
-    });
-  </script>
+
+        // Récupération des éléments du DOM pour la soumission du formulaire
+        const form = document.getElementById('contact-form');
+        const success = document.getElementById('success-msg');
+
+        // Ajout d'un écouteur d'événement pour la soumission du formulaire
+        form.addEventListener('submit', function (e) {
+            e.preventDefault(); // Empêche le comportement par défaut du formulaire (rechargement de la page)
+
+            const formData = new FormData(form); // Crée un objet FormData à partir du formulaire
+
+            // Collecter les jeux cochés
+            const selectedGames = [];
+            document.querySelectorAll('input[name="games"]:checked').forEach(checkbox => {
+                selectedGames.push(checkbox.value);
+            });
+            // Ajouter les jeux sélectionnés au FormData
+            formData.append('jeux_preferes', selectedGames.join(', '));
+
+            // Si "Autre" est coché, ajouter le texte de l'autre jeu
+            const otherGameCheckbox = document.getElementById('other-game-checkbox');
+            const otherGameTextInput = document.getElementById('other-game-text');
+            if (otherGameCheckbox.checked && otherGameTextInput.value.trim() !== '') {
+                formData.append('autre_jeu_precis', otherGameTextInput.value.trim());
+            }
+
+
+            // Envoi des données du formulaire à l'URL spécifiée (Formspree)
+            fetch(form.action, {
+                method: 'POST', // Méthode HTTP POST
+                body: formData, // Corps de la requête (données du formulaire)
+                headers: {
+                    'Accept': 'application/json' // Accepte une réponse JSON
+                }
+            })
+            .then(response => {
+                // Vérifie si la réponse de la requête est OK (statut 2xx)
+                if (response.ok) {
+                    success.style.display = 'block'; // Affiche le message de succès
+                    form.reset(); // Réinitialise le formulaire
+                    // Cacher le champ "Autre jeu" après réinitialisation si coché
+                    document.getElementById('other-game-input-container').classList.add('hidden');
+                    document.getElementById('other-game-text').removeAttribute('required');
+                } else {
+                    // Gère les erreurs de soumission du formulaire
+                    console.error('Erreur lors de l\'envoi du message.');
+                    // Vous pourriez ajouter un message d'erreur à l'utilisateur ici
+                }
+            })
+            .catch(error => {
+                // Gère les erreurs réseau ou autres problèmes
+                console.error('Erreur réseau ou autre:', error);
+                // Vous pourriez ajouter un message d'erreur à l'utilisateur ici
+            });
+        });
+    </script>
 
 </body>
 </html>
