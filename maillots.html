@@ -35,13 +35,34 @@
             background-color: var(--color-dark-neon-red);
             color: #fff;
         }
+        /* Style pour les boutons de vue des maillots */
+        .view-button {
+            background-color: var(--color-dark-neon-red);
+            color: white;
+            padding: 0.75rem 1.5rem;
+            border-radius: 0.75rem;
+            font-weight: bold;
+            transition: background-color 0.3s ease, transform 0.2s ease;
+            cursor: pointer;
+            border: 2px solid var(--color-neon-red);
+            box-shadow: 0 0 5px var(--color-neon-red);
+        }
+        .view-button:hover {
+            background-color: var(--color-neon-red);
+            transform: translateY(-2px);
+            box-shadow: 0 0 10px var(--color-neon-red);
+        }
+        .view-button:active {
+            transform: translateY(0);
+            box-shadow: 0 0 3px var(--color-neon-red);
+        }
     </style>
 </head>
 <body class="bg-[var(--color-black-bg)] text-gray-200 min-h-screen flex flex-col items-center p-4">
 
     <nav class="w-full max-w-4xl bg-gray-900 border-2 border-[var(--color-dark-neon-red)] rounded-xl p-4 mb-8 shadow-lg border-glow flex justify-center">
         <a href="index.html" class="nav-link text-[var(--color-neon-red)] hover:text-white">Retour à l'accueil</a>
-        </nav>
+    </nav>
 
     <div class="w-full max-w-4xl bg-gray-900 border-2 border-[var(--color-dark-neon-red)] rounded-xl p-8 md:p-12 shadow-lg border-glow transform transition-all duration-300 hover:scale-[1.01]">
         <header class="text-center mb-10">
@@ -54,13 +75,32 @@
         </header>
 
         <section class="flex flex-col md:flex-row items-center justify-center gap-8 mb-10">
-            <div class="w-full md:w-1/2 flex justify-center">
-                <img
-                    src="https://placehold.co/600x400/1a1a1a/dc2626?text=Maillot+de+l'Équipe"
-                    alt="Image des maillots de l'équipe"
-                    class="w-full max-w-sm rounded-lg border-2 border-[var(--color-neon-red)] object-cover shadow-md border-glow"
-                    onerror="this.onerror=null;this.src='https://placehold.co/600x400/1a1a1a/dc2626?text=Image+non+disponible';"
-                >
+            <div class="w-full md:w-1/2 flex flex-col items-center">
+                <div class="relative w-full max-w-sm h-64 md:h-80 flex justify-center items-center">
+                    <img
+                        id="jerseyFrontImage"
+                        src="https://placehold.co/600x400/1a1a1a/dc2626?text=Maillot+Avant"
+                        alt="Image avant du maillot de l'équipe"
+                        class="absolute w-full h-full object-contain rounded-lg border-2 border-[var(--color-neon-red)] shadow-md border-glow"
+                        onerror="this.onerror=null;this.src='https://placehold.co/600x400/1a1a1a/dc2626?text=Image+Avant+Non+Dispo';"
+                    >
+                    <img
+                        id="jerseyBackImage"
+                        src="https://placehold.co/600x400/1a1a1a/dc2626?text=Maillot+Arrière"
+                        alt="Image arrière du maillot de l'équipe"
+                        class="absolute w-full h-full object-contain rounded-lg border-2 border-[var(--color-neon-red)] shadow-md border-glow hidden"
+                        onerror="this.onerror=null;this.src='https://placehold.co/600x400/1a1a1a/dc2626?text=Image+Arrière+Non+Dispo';"
+                    >
+                </div>
+
+                <div class="flex gap-4 mt-6">
+                    <button id="showFrontBtn" class="view-button" onclick="showJersey('front')">
+                        Voir l'avant
+                    </button>
+                    <button id="showBackBtn" class="view-button" onclick="showJersey('back')">
+                        Voir l'arrière
+                    </button>
+                </div>
             </div>
             <div class="w-full md:w-1/2 text-center md:text-left">
                 <h2 class="text-3xl md:text-4xl font-bold text-white mb-4">
@@ -84,6 +124,33 @@
             </p>
         </footer>
     </div>
+
+    <script>
+        /**
+         * Affiche la vue spécifiée du maillot (avant ou arrière) et cache l'autre.
+         * @param {string} view - La vue à afficher ('front' pour l'avant, 'back' pour l'arrière).
+         */
+        function showJersey(view) {
+            const jerseyFrontImage = document.getElementById('jerseyFrontImage');
+            const jerseyBackImage = document.getElementById('jerseyBackImage');
+
+            if (view === 'front') {
+                jerseyFrontImage.classList.remove('hidden'); // Affiche l'image avant
+                jerseyBackImage.classList.add('hidden');    // Cache l'image arrière
+            } else if (view === 'back') {
+                jerseyFrontImage.classList.add('hidden');     // Cache l'image avant
+                jerseyBackImage.classList.remove('hidden'); // Affiche l'image arrière
+            } else {
+                // Gérer les cas inattendus, bien que les boutons ne devraient envoyer que 'front' ou 'back'
+                console.error("Vue de maillot non valide spécifiée : " + view);
+            }
+        }
+
+        // Initialisation : s'assurer que l'image avant est visible au chargement
+        window.onload = function() {
+            showJersey('front');
+        };
+    </script>
 
 </body>
 </html>
