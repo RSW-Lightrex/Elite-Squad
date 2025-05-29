@@ -16,32 +16,34 @@
 </head>
 <body class="min-h-screen bg-black text-gray-200 flex flex-col items-center p-4">
 
-  <header class="w-full max-w-5xl text-center mb-10 p-6 bg-gray-900 rounded-xl shadow-lg border border-red-900 flex flex-col md:flex-row items-center justify-between gap-4">
-    <img src="logo elite squad.jpg" alt="Logo Elite Squad" class="h-24 w-auto rounded-full border-2 border-red-700 shadow-md drop-shadow-[0_0_8px_rgba(220,38,38,0.5)]">
-    <h1 class="text-4xl md:text-5xl font-bold text-red-700 drop-shadow-[0_0_10px_rgba(220,38,38,0.7)] mt-4 md:mt-0">
-      Elite Squad
-    </h1>
-    <nav class="flex flex-wrap justify-center md:justify-end gap-x-6 gap-y-2 mt-4 md:mt-0">
-      <a href="#" class="text-red-500 hover:text-red-300 font-semibold transition-colors duration-300">Accueil</a>
-      <a href="equipe.html" class="text-red-500 hover:text-red-300 font-semibold transition-colors duration-300">Notre Équipe</a>
-      <a href="match.html" class="text-red-500 hover:text-red-300 font-semibold transition-colors duration-300">Matchs/Tournois</a>
-      <a href="entrainements.html" class="text-red-500 hover:text-red-300 font-semibold transition-colors duration-300">Entraînements</a>
-      <a href="jeux.html" class="text-red-500 hover:text-red-300 font-semibold transition-colors duration-300">Jeux</a>
-      <a href="resultat.html" class="text-red-500 hover:text-red-300 font-semibold transition-colors duration-300">Résultats</a>
-      <a href="galerie.html" class="text-red-500 hover:text-red-300 font-semibold transition-colors duration-300">Galerie</a>
-      <a href="clip.html" class="text-red-500 hover:text-red-300 font-semibold transition-colors duration-300">Rediffusions</a>
-      <a href="maillots.html" class="text-red-500 hover:text-red-300 font-semibold transition-colors duration-300">Nos Maillots Personnalisés</a>
-      <a href="contact.html" class="text-red-500 hover:text-red-300 font-semibold transition-colors duration-300">Contact</a>
+  <header class="w-full max-w-5xl text-center mb-10 p-6 bg-gray-900 rounded-xl shadow-lg border border-red-600 flex flex-col items-center gap-4">
+    <div class="flex flex-col md:flex-row items-center justify-center gap-4 w-full">
+      <img src="logo elite squad.jpg" alt="Logo Elite Squad" class="h-24 w-auto rounded-full border-2 border-red-600 shadow-md drop-shadow-[0_0_12px_rgba(239,68,68,0.9)]">
+      <h1 class="text-4xl md:text-5xl font-bold text-red-600 drop-shadow-[0_0_12px_rgba(239,68,68,0.9)] mt-4 md:mt-0">
+        Elite Squad
+      </h1>
+    </div>
+    <nav class="flex flex-wrap justify-center gap-x-6 gap-y-2 mt-4 w-full md:mt-0">
+      <a href="#" class="text-red-600 hover:text-red-500 font-semibold transition-colors duration-300">Accueil</a>
+      <a href="equipe.html" class="text-red-600 hover:text-red-500 font-semibold transition-colors duration-300">Notre Équipe</a>
+      <a href="match.html" class="text-red-600 hover:text-red-500 font-semibold transition-colors duration-300">Matchs/Tournois</a>
+      <a href="entrainements.html" class="text-red-600 hover:text-red-500 font-semibold transition-colors duration-300">Entraînements</a>
+      <a href="jeux.html" class="text-red-600 hover:text-red-500 font-semibold transition-colors duration-300">Jeux</a>
+      <a href="resultat.html" class="text-red-600 hover:text-red-500 font-semibold transition-colors duration-300">Résultats</a>
+      <a href="galerie.html" class="text-red-600 hover:text-red-500 font-semibold transition-colors duration-300">Galerie</a>
+      <a href="clip.html" class="text-red-600 hover:text-red-500 font-semibold transition-colors duration-300">Rediffusions</a>
+      <a href="maillots.html" class="text-red-600 hover:text-red-500 font-semibold transition-colors duration-300">Nos Maillots Personnalisés</a>
+      <a href="contact.html" class="text-red-600 hover:text-red-500 font-semibold transition-colors duration-300">Contact</a>
     </nav>
   </header>
 
   <main class="w-full max-w-5xl space-y-12 mb-10">
-    <section class="intro p-8 bg-gray-900 rounded-xl shadow-lg border border-red-900 text-center">
+    <section class="intro p-8 bg-gray-900 rounded-xl shadow-lg border border-red-600 text-center">
       <h2 class="text-3xl font-bold mb-4 text-red-600">Bienvenue sur le site officiel !</h2>
       <p class="text-lg leading-relaxed">Nous sommes une équipe e-sport passionnée par les jeux Nintendo !</p>
     </section>
 
-    <section class="joueurs p-8 bg-gray-900 rounded-xl shadow-lg border border-red-900">
+    <section class="joueurs p-8 bg-gray-900 rounded-xl shadow-lg border border-red-600">
       <h2 class="text-3xl font-bold mb-6 text-red-600 text-center">Nos Joueurs</h2>
       <ul id="player-list" class="grid grid-cols-1 md:grid-cols-3 gap-4 text-center text-lg">
         <li class="p-3 bg-gray-800 rounded-lg border border-gray-700">🎮 RSW-Lightrex - Chef/Joueur</li>
@@ -55,13 +57,13 @@
         <li class="p-3 bg-gray-800 rounded-lg border border-gray-700 hidden player-item">🎮 RSW-Zambo - Joueur</li>
       </ul>
       <div class="text-center mt-6">
-        <button id="toggle-players-btn" class="px-6 py-3 bg-red-800 text-white font-semibold text-lg rounded-xl shadow-lg hover:bg-red-700 transition-all duration-300 drop-shadow-[0_0_8px_rgba(220,38,38,0.5)] active:scale-95 focus:outline-none focus:ring-2 focus:ring-red-700">
+        <button id="toggle-players-btn" class="px-6 py-3 bg-red-600 text-white font-semibold text-lg rounded-xl shadow-lg hover:bg-red-500 transition-all duration-300 drop-shadow-[0_0_12px_rgba(239,68,68,0.9)] active:scale-95 focus:outline-none focus:ring-2 focus:ring-red-600">
           Voir plus de joueurs
         </button>
       </div>
     </section>
 
-    <section class="matchs p-8 bg-gray-900 rounded-xl shadow-lg border border-red-900">
+    <section class="matchs p-8 bg-gray-900 rounded-xl shadow-lg border border-red-600">
       <h2 class="text-3xl font-bold mb-6 text-red-600 text-center">Prochains Matchs</h2>
       <div class="space-y-3 text-lg text-center">
         <p class="p-3 bg-gray-800 rounded-lg border border-gray-700">🗓️ none - vs none</p>
@@ -69,41 +71,36 @@
       </div>
     </section>
 
-    <section class="videos p-8 bg-gray-900 rounded-xl shadow-lg border border-red-900 text-center">
+    <section class="videos p-8 bg-gray-900 rounded-xl shadow-lg border border-red-600 text-center">
       <h2 class="text-3xl font-bold mb-6 text-red-600">Vidéos Highlights</h2>
       <iframe class="w-full max-w-xl h-64 md:h-96 rounded-lg shadow-md border border-gray-700 mx-auto" src="https://www.youtube.com/embed/QSLvBr6xcuw" allowfullscreen></iframe>
     </section>
   </main>
 
-  <footer class="w-full max-w-5xl text-center p-6 bg-gray-900 rounded-xl shadow-lg border border-red-900 mt-10">
+  <footer class="w-full max-w-5xl text-center p-6 bg-gray-900 rounded-xl shadow-lg border border-red-600 mt-10">
     <p class="text-md mb-3">© 2025 Elite Squad - Tous droits réservés</p>
     <p class="text-lg">Suivez-nous :
-      <a href="https://discord.gg/Z8gZvUmt" target="_blank" rel="noopener noreferrer" class="text-red-600 hover:text-red-400 mx-3 transition-colors duration-300">
-        <i class="fab fa-discord text-3xl drop-shadow-[0_0_5px_rgba(220,38,38,0.5)]"></i>
+      <a href="https://discord.gg/Z8gZvUmt" target="_blank" rel="noopener noreferrer" class="text-red-600 hover:text-red-500 mx-3 transition-colors duration-300">
+        <i class="fab fa-discord text-3xl drop-shadow-[0_0_12px_rgba(239,68,68,0.9)]"></i>
       </a>
-      <a href="#" target="_blank" rel="noopener noreferrer" class="text-red-600 hover:text-red-400 mx-3 transition-colors duration-300">
-        <i class="fab fa-twitter text-3xl drop-shadow-[0_0_5px_rgba(220,38,38,0.5)]"></i>
+      <a href="#" target="_blank" rel="noopener noreferrer" class="text-red-600 hover:text-red-500 mx-3 transition-colors duration-300">
+        <i class="fab fa-twitter text-3xl drop-shadow-[0_0_12px_rgba(239,68,68,0.9)]"></i>
       </a>
-      <a href="https://www.twitch.tv/rswelitesquad" target="_blank" rel="noopener noreferrer" class="text-red-600 hover:text-red-400 mx-3 transition-colors duration-300">
-        <i class="fab fa-twitch text-3xl drop-shadow-[0_0_5px_rgba(220,38,38,0.5)]"></i>
+      <a href="https://www.twitch.tv/rswelitesquad" target="_blank" rel="noopener noreferrer" class="text-red-600 hover:text-red-500 mx-3 transition-colors duration-300">
+        <i class="fab fa-twitch text-3xl drop-shadow-[0_0_12px_rgba(239,68,68,0.9)]"></i>
       </a>
     </p>
   </footer>
 
   <script>
-    // Récupération du bouton et des éléments de joueur cachés
     const togglePlayersBtn = document.getElementById('toggle-players-btn');
-    const hiddenPlayers = document.querySelectorAll('.player-item'); // Sélectionne tous les joueurs avec la classe 'player-item'
+    const hiddenPlayers = document.querySelectorAll('.player-item');
 
-    // Ajout d'un écouteur d'événement au bouton
     togglePlayersBtn.addEventListener('click', () => {
-      // Pour chaque joueur caché
       hiddenPlayers.forEach(player => {
-        // Inverse la visibilité : si caché, devient visible, et vice-versa
         player.classList.toggle('hidden');
       });
 
-      // Met à jour le texte du bouton en fonction de la visibilité des joueurs
       if (hiddenPlayers[0].classList.contains('hidden')) {
         togglePlayersBtn.textContent = 'Voir plus de joueurs';
       } else {
