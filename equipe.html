@@ -121,92 +121,113 @@
     <h1>Équipe RSW - Statistiques joueurs</h1>
 
     <div id="game-columns-container" class="game-columns-container">
-        </div>
+    </div>
 
     <div class="home-button-container">
         <a href="index.html" class="home-button">Retour à l'accueil</a>
     </div>
 
     <script>
-        // Data for players, extracted from your provided HTML
-        // Note: Image paths are replaced with placeholder URLs as local files are not accessible in web previews.
+        // Data for players, extracted from your provided HTML.
+        // IMPORTANT: These image paths are local. They will NOT display in a web browser
+        // unless you host these images online and update these paths to their public URLs.
         const playersData = [
             {
                 name: "RSW-Lightrex",
                 position: "Chef/joueur",
                 games: ["Smash Bros"],
-                image: "https://placehold.co/90x90/110000/ff0000?text=Lightrex",
+                image: "Lightrex pp.webp", // <<< CHEMIN LOCAL - REMPLACEZ PAR L'URL PUBLIQUE (ex: "https://votresite.com/images/Lightrex%20pp.webp")
                 statsLink: "stats-rsw-lightrex.html"
             },
             {
                 name: "RSW-Firerex",
                 position: "admin/joueur",
                 games: ["Splatoon", "Fortnite"],
-                image: "https://placehold.co/90x90/110000/ff0000?text=Firerex",
+                image: "avatar Firerex.webp", // <<< CHEMIN LOCAL - REMPLACEZ PAR L'URL PUBLIQUE
                 statsLink: "stats-rsw-firerex.html"
             },
             {
                 name: "RSW-Lespectre",
                 position: "admin/joueur",
                 games: ["Mario Kart"],
-                image: "https://placehold.co/90x90/110000/ff0000?text=Lespectre",
+                image: "avatar Lespectre.webp", // <<< CHEMIN LOCAL - REMPLACEZ PAR L'URL PUBLIQUE
                 statsLink: "stats-rsw-lespectre.html"
             },
             {
                 name: "RSW-Doug",
                 position: "joueur",
                 games: ["Mario Kart"],
-                image: "https://placehold.co/90x90/110000/ff0000?text=Doug",
+                image: "pp doug.gif", // <<< CHEMIN LOCAL - REMPLACEZ PAR L'URL PUBLIQUE
                 statsLink: "RSW-Doug.html"
             },
             {
                 name: "~Zββ☆MeW~",
                 position: "ally",
                 games: ["Mario Kart"],
-                image: "https://placehold.co/90x90/110000/ff0000?text=MeW",
+                image: "Mew sous les étoiles digitales.png", // <<< CHEMIN LOCAL - REMPLACEZ PAR L'URL PUBLIQUE
                 statsLink: "ZbbMeW.html"
             },
             {
                 name: "RSW-Gogita",
                 position: "joueur",
                 games: ["Mario Kart", "Smash Bros"],
-                image: "https://placehold.co/90x90/110000/ff0000?text=Gogita",
+                image: "pp Gogita.gif", // <<< CHEMIN LOCAL - REMPLACEZ PAR L'URL PUBLIQUE
                 statsLink: "RSW-Gogita.html"
             },
             {
                 name: "RSW-Lino.Mk126",
                 position: "joueur",
                 games: ["Mario Kart"],
-                image: "https://placehold.co/90x90/110000/ff0000?text=Lino",
+                image: "ppLinoMk126.png", // <<< CHEMIN LOCAL - REMPLACEZ PAR L'URL PUBLIQUE
                 statsLink: "Lino._Mk126.html"
             },
             {
                 name: "RSW-Ino21",
                 position: "joueur",
                 games: ["Mario Kart"],
-                image: "https://placehold.co/90x90/110000/ff0000?text=Ino21",
+                image: "ppLinoMk1126.png", // <<< CHEMIN LOCAL - REMPLACEZ PAR L'URL PUBLIQUE
                 statsLink: "Ino.html"
             },
             {
                 name: "RSW-Kach",
                 position: "joueur",
                 games: ["Mario Kart"],
-                image: "https://placehold.co/90x90/110000/ff0000?text=Kach",
+                image: "ppKach.png", // <<< CHEMIN LOCAL - REMPLACEZ PAR L'URL PUBLIQUE
                 statsLink: "Kach.html"
             },
             {
                 name: "RSW-Zambo",
                 position: "joueur",
                 games: ["Mario Kart"],
-                image: "https://placehold.co/90x90/110000/ff0000?text=Zambo",
+                image: "ppZambo.png", // <<< CHEMIN LOCAL - REMPLACEZ PAR L'URL PUBLIQUE
                 statsLink: "Zambo.html"
+            },
+            // --- EXEMPLE POUR AJOUTER UN AUTRE JOUEUR À SPLATOON (DÉCOMMENTEZ POUR ACTIVER) ---
+            /*
+            {
+                name: "RSW-NewSplatoonPlayer",
+                position: "joueur",
+                games: ["Splatoon"],
+                image: "URL_DE_VOTRE_IMAGE_SPLATOON_ICI", // REMPLACEZ PAR L'URL PUBLIQUE
+                statsLink: "stats-newsplatoonplayer.html"
+            },
+            */
+            // --- EXEMPLE POUR AJOUTER UN AUTRE JOUEUR À FORTNITE (DÉCOMMENTEZ POUR ACTIVER) ---
+            /*
+            {
+                name: "RSW-NewFortnitePlayer",
+                position: "joueur",
+                games: ["Fortnite"],
+                image: "URL_DE_VOTRE_IMAGE_FORTNITE_ICI", // REMPLACEZ PAR L'URL PUBLIQUE
+                statsLink: "stats-newfortniteplayer.html"
             }
+            */
         ];
 
         /**
-         * Creates a player card DOM element.
-         * @param {Object} player - Player data object.
-         * @returns {HTMLElement} The created player card element.
+         * Crée un élément DOM de carte de joueur.
+         * @param {Object} player - Objet de données du joueur.
+         * @returns {HTMLElement} L'élément de carte de joueur créé.
          */
         function createPlayerCard(player) {
             const playerCard = document.createElement('div');
@@ -244,22 +265,23 @@
         }
 
         /**
-         * Renders player cards into game-specific columns, showing only the first player initially.
+         * Rend les cartes de joueur dans des colonnes spécifiques au jeu,
+         * n'affichant initialement que le premier joueur.
          */
         function renderPlayersByGame() {
             const container = document.getElementById('game-columns-container');
-            container.innerHTML = ''; // Clear existing content
+            container.innerHTML = ''; // Efface le contenu existant
 
-            // Get all unique game names
+            // Récupère tous les noms de jeux uniques
             const uniqueGames = new Set();
             playersData.forEach(player => {
                 player.games.forEach(game => uniqueGames.add(game.trim()));
             });
 
-            // Sort games alphabetically for consistent display
+            // Trie les jeux par ordre alphabétique pour un affichage cohérent
             const sortedGames = Array.from(uniqueGames).sort();
 
-            // Create a column for each unique game
+            // Crée une colonne pour chaque jeu unique
             sortedGames.forEach(game => {
                 const gameColumn = document.createElement('div');
                 gameColumn.className = 'game-column';
@@ -268,33 +290,33 @@
                 columnTitle.textContent = game;
                 gameColumn.appendChild(columnTitle);
 
-                // Filter players who are strong in the current game
+                // Filtre les joueurs qui sont forts dans le jeu actuel
                 const playersInThisGame = playersData.filter(player =>
                     player.games.includes(game)
                 );
 
                 if (playersInThisGame.length > 0) {
-                    // Always add the first player's card
+                    // Ajoute toujours la carte du premier joueur
                     gameColumn.appendChild(createPlayerCard(playersInThisGame[0]));
 
-                    // If there are more players, create a hidden container for them
+                    // S'il y a plus de joueurs, crée un conteneur caché pour eux
                     if (playersInThisGame.length > 1) {
                         const morePlayersContainer = document.createElement('div');
-                        morePlayersContainer.className = 'more-players-container hidden'; // Initially hidden
-                        morePlayersContainer.id = `more-players-${game.replace(/\s/g, '-')}`; // Unique ID
+                        morePlayersContainer.className = 'more-players-container hidden'; // Initialement caché
+                        morePlayersContainer.id = `more-players-${game.replace(/\s/g, '-')}`; // ID unique pour le conteneur
 
-                        // Add remaining players to the hidden container
+                        // Ajoute les joueurs restants au conteneur caché
                         for (let i = 1; i < playersInThisGame.length; i++) {
                             morePlayersContainer.appendChild(createPlayerCard(playersInThisGame[i]));
                         }
                         gameColumn.appendChild(morePlayersContainer);
 
-                        // Add "Voir plus" button
+                        // Ajoute le bouton "Voir plus"
                         const toggleButton = document.createElement('button');
                         toggleButton.className = 'toggle-players-button';
                         toggleButton.textContent = 'Voir plus';
                         toggleButton.addEventListener('click', () => {
-                            morePlayersContainer.classList.toggle('hidden');
+                            morePlayersContainer.classList.toggle('hidden'); // Bascule la visibilité
                             if (morePlayersContainer.classList.contains('hidden')) {
                                 toggleButton.textContent = 'Voir plus';
                             } else {
@@ -314,12 +336,11 @@
             });
         }
 
-        // Call the render function when the page loads
+        // Appelle la fonction de rendu lorsque la page est chargée
         document.addEventListener('DOMContentLoaded', renderPlayersByGame);
     </script>
 </body>
 </html>
-
 
 
 
