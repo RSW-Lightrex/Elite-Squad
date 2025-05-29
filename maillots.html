@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Personnalisation des Maillots</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        /* Configuration personnalisée de Tailwind pour les couleurs néon */
+        :root {
+            --color-neon-red: #dc2626; /* red-600 */
+            --color-dark-neon-red: #b91c1c; /* red-700 */
+            --color-black-bg: #0a0a0a; /* Presque noir */
+        }
+        body {
+            font-family: 'Inter', sans-serif;
+        }
+        /* Effet de lueur subtile pour le texte important */
+        .text-glow {
+            text-shadow: 0 0 5px var(--color-neon-red), 0 0 10px var(--color-neon-red);
+        }
+        /* Effet de lueur pour les bordures */
+        .border-glow {
+            box-shadow: 0 0 8px var(--color-dark-neon-red);
+        }
+        /* Style pour les liens de navigation */
+        .nav-link {
+            color: #fff;
+            text-decoration: none;
+            padding: 0.5rem 1rem;
+            border-radius: 0.5rem;
+            transition: background-color 0.3s ease, color 0.3s ease;
+        }
+        .nav-link:hover {
+            background-color: var(--color-dark-neon-red);
+            color: #fff;
+        }
+    </style>
+</head>
+<body class="bg-[var(--color-black-bg)] text-gray-200 min-h-screen flex flex-col items-center p-4">
+
+    <nav class="w-full max-w-4xl bg-gray-900 border-2 border-[var(--color-dark-neon-red)] rounded-xl p-4 mb-8 shadow-lg border-glow flex justify-center">
+        <a href="index.html" class="nav-link text-[var(--color-neon-red)] hover:text-white">Retour à l'accueil</a>
+        </nav>
+
+    <div class="w-full max-w-4xl bg-gray-900 border-2 border-[var(--color-dark-neon-red)] rounded-xl p-8 md:p-12 shadow-lg border-glow transform transition-all duration-300 hover:scale-[1.01]">
+        <header class="text-center mb-10">
+            <h1 class="text-4xl md:text-5xl font-extrabold text-[var(--color-neon-red)] mb-4 text-glow">
+                Maillots Personnalisés de l'Équipe
+            </h1>
+            <p class="text-lg md:text-xl text-gray-300">
+                L'identité de notre équipe, unique pour chaque joueur.
+            </p>
+        </header>
+
+        <section class="flex flex-col md:flex-row items-center justify-center gap-8 mb-10">
+            <div class="w-full md:w-1/2 flex justify-center">
+                <img
+                    src="https://placehold.co/600x400/1a1a1a/dc2626?text=Maillot+de+l'Équipe"
+                    alt="Image des maillots de l'équipe"
+                    class="w-full max-w-sm rounded-lg border-2 border-[var(--color-neon-red)] object-cover shadow-md border-glow"
+                    onerror="this.onerror=null;this.src='https://placehold.co/600x400/1a1a1a/dc2626?text=Image+non+disponible';"
+                >
+            </div>
+            <div class="w-full md:w-1/2 text-center md:text-left">
+                <h2 class="text-3xl md:text-4xl font-bold text-white mb-4">
+                    Votre Maillot, Votre Identité
+                </h2>
+                <p class="text-base md:text-lg text-gray-300 leading-relaxed">
+                    Nous sommes fiers d'annoncer que tous les maillots de notre équipe seront
+                    <span class="font-semibold text-[var(--color-neon-red)]">entièrement personnalisés</span>
+                    pour chaque joueur. Chaque maillot portera fièrement le nom et le numéro
+                    de son propriétaire, garantissant une pièce unique qui reflète votre
+                    contribution et votre esprit au sein de l'équipe.
+                    Cette personnalisation renforce notre cohésion et célèbre l'individualité
+                    de chacun, tout en portant haut les couleurs de notre club.
+                </p>
+            </div>
+        </section>
+
+        <footer class="text-center pt-8 border-t border-gray-700 mt-8">
+            <p class="text-sm text-gray-500">
+                © 2025 Votre Équipe. Tous droits réservés.
+            </p>
+        </footer>
+    </div>
+
+</body>
+</html>
