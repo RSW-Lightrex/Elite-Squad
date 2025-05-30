@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nos Alliés - Elite Squad</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        /* Configuration de la police Inter */
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap');
+        body {
+            font-family: 'Inter', sans-serif;
+        }
+
+        /* Styles personnalisés pour le néon rouge */
+        .neon-red-text {
+            color: #e80707; /* Nouveau rouge éclatant */
+            text-shadow: 0 0 8px #e80707, 0 0 15px #e80707, 0 0 25px #e80707, 0 0 35px #e80707; /* Ombre plus prononcée */
+        }
+
+        .neon-red-border {
+            border-color: #e80707; /* Nouveau rouge éclatant */
+            box-shadow: 0 0 8px #e80707, 0 0 15px #e80707; /* Ombre plus prononcée */
+        }
+
+        .neon-red-bg {
+            background-color: #e80707; /* Nouveau rouge éclatant */
+            box-shadow: 0 0 8px #e80707, 0 0 15px #e80707; /* Ombre plus prononcée */
+        }
+
+        /* Effet de survol néon pour les boutons/liens */
+        .hover-neon-red:hover {
+            background-color: #c40606; /* Une nuance légèrement plus foncée au survol */
+            box-shadow: 0 0 10px #e80707, 0 0 20px #e80707, 0 0 30px #e80707; /* Ombre de survol plus intense */
+            transform: translateY(-2px);
+        }
+    </style>
+</head>
+<body class="bg-black text-gray-100 min-h-screen flex flex-col">
+    <header class="bg-gray-900 py-6 shadow-lg">
+        <div class="container mx-auto px-4 flex flex-col md:flex-row justify-between items-center">
+            <h1 class="text-4xl font-bold neon-red-text mb-4 md:mb-0">
+                Elite Squad - Nos Alliés
+            </h1>
+            <nav>
+                <ul class="flex space-x-6">
+                    <li><a href="index.html" class="text-gray-300 hover:text-white transition duration-300">Retour à l'accueil</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main class="flex-grow container mx-auto px-4 py-12">
+        <section class="text-center mb-16">
+            <p class="text-lg text-gray-300 max-w-3xl mx-auto">
+                Nous sommes fiers de collaborer avec des partenaires qui partagent notre passion et nous aident à atteindre de nouveaux sommets dans l'univers de l'e-sport. Un immense merci à nos précieux alliés pour leur soutien indéfectible !
+            </p>
+        </section>
+
+        <section class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-8">
+            <div class="bg-gray-900 p-8 rounded-xl border-2 border-gray-800 neon-red-border transition duration-300 hover:scale-105">
+                <div class="flex flex-col items-center">
+                    <img src="https://placehold.co/120x120/1a1a1a/e80707?text=Z%CE%B2%CE%B2%E2%98%86MeW" alt="Logo de ~Zββ☆MeW~" class="w-28 h-28 rounded-full border-4 border-gray-700 object-cover mb-6 neon-red-border">
+                    <h3 class="text-3xl font-semibold neon-red-text mb-1">~Zββ☆MeW~</h3>
+                    <p class="text-gray-500 text-sm mb-6">Mario Kart</p>
+                    <p class="text-gray-400 text-center mb-6">
+                        Notre allié stratégique, connu pour son expertise et sa vision unique du jeu. Leur soutien nous est précieux pour affiner nos tactiques et dominer la compétition.
+                    </p>
+                    <a href="#" class="inline-block px-8 py-3 rounded-full font-bold text-lg text-white neon-red-bg hover-neon-red transition duration-300">
+                        Voir les stats
+                    </a>
+                </div>
+            </div>
+
+            <div class="bg-gray-900 p-8 rounded-xl border-2 border-gray-800 neon-red-border transition duration-300 hover:scale-105">
+                <div class="flex flex-col items-center">
+                    <img src="https://placehold.co/120x120/1a1a1a/e80707?text=Scovilain" alt="Logo de Scovilain" class="w-28 h-28 rounded-full border-4 border-gray-700 object-cover mb-6 neon-red-border">
+                    <h3 class="text-3xl font-semibold neon-red-text mb-1">Scovilain</h3>
+                    <p class="text-gray-500 text-sm mb-6">Mario Kart</p>
+                    <p class="text-gray-400 text-center mb-6">
+                        Un partenaire essentiel qui nous apporte un support technique et logistique inégalé. Grâce à Scovilain, nous pouvons nous concentrer pleinement sur nos performances.
+                    </p>
+                    <a href="#" class="inline-block px-8 py-3 rounded-full font-bold text-lg text-white neon-red-bg hover-neon-red transition duration-300">
+                        Voir les stats
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <section class="text-center mt-20 bg-gray-900 p-10 rounded-xl border-2 border-gray-800 neon-red-border">
+            <h2 class="text-4xl font-bold neon-red-text mb-6">
+                Envie de rejoindre l'Elite Squad ?
+            </h2>
+            <p class="text-lg text-gray-300 mb-8 max-w-2xl mx-auto">
+                Si vous êtes une organisation ou un individu souhaitant collaborer avec une équipe e-sport dynamique et ambitieuse, nous serions ravis d'étudier un partenariat.
+            </p>
+            <a href="mailto:contact@elitesquad.com" class="inline-block px-10 py-4 rounded-full font-bold text-xl text-white neon-red-bg hover-neon-red transition duration-300">
+                Contactez-nous
+            </a>
+        </section>
+    </main>
+
+    <footer class="bg-gray-900 py-6 mt-12 text-center text-gray-400">
+        <p>&copy; 2025 Elite Squad. Tous droits réservés.</p>
+    </footer>
+</body>
+</html>
